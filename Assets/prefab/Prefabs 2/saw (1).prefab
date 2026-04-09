@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2420068019775397146}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.58, y: -0.0101461, z: 0}
   m_LocalScale: {x: 0.86742, y: 0.86742, z: 0.86742}
   m_ConstrainProportionsScale: 0
@@ -77,15 +77,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1965719709
+  m_SortingLayerID: -41725589
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8593036548960354761, guid: bb9e1dc36b79de64dbe5153e879f4d21, type: 3}
+  m_Sprite: {fileID: 8593036548960354761, guid: 460bada5454a4a145a0dfec93b4172a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.31458968, y: 0.31835938}
+  m_Size: {x: 1.6006948, y: 1.6200001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallscript: {fileID: 0}
-  Blood: {fileID: 7810294909828934012, guid: 31e615e8b147b8f479aca496b0cb1816, type: 3}
+  Blood: {fileID: 7810294909828934012, guid: 185f0175107527a4d88c69add86cd73f, type: 3}
 --- !u!95 &8710859256071512312
 Animator:
   serializedVersion: 7
@@ -115,7 +115,7 @@ Animator:
   m_GameObject: {fileID: 2420068019775397146}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c7aa01d4f85a1654297820e5303b43ac, type: 2}
+  m_Controller: {fileID: 9100000, guid: 01a2477fbee303249943edfef7c4deb8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -207,7 +207,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8593036548960354761, guid: bb9e1dc36b79de64dbe5153e879f4d21, type: 3}
+  m_Sprite: {fileID: 8593036548960354761, guid: 460bada5454a4a145a0dfec93b4172a5, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
