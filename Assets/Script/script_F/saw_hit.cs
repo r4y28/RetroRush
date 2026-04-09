@@ -24,7 +24,7 @@ public class saw_hit : MonoBehaviour
             // 🎯 Get exact hit position
             Vector2 randomOffset = Random.insideUnitCircle * 0.2f;
             Vector2 hitPoint = collision.ClosestPoint(transform.position) + randomOffset;
-
+            collision.gameObject.GetComponent<Movement>().BloodFx.Play();  
             GameObject blood = ObjectPooling.instance.SpawnFromPool(
                 "Blood",
                 hitPoint,
