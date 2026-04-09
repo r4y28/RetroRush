@@ -32,7 +32,7 @@ public class ObjectPooling : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                GameObject obj = Instantiate(pool.prefab, transform);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -41,7 +41,7 @@ public class ObjectPooling : MonoBehaviour
         }
     }
 
-    // 🔥 Spawn function (THIS is what you'll use everywhere)
+    // ✅ Spawn function
     public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation, Transform parent = null)
     {
         if (!poolDictionary.ContainsKey(tag))
@@ -50,18 +50,37 @@ public class ObjectPooling : MonoBehaviour
             return null;
         }
 
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        Queue<GameObject> poolQueue = poolDictionary[tag];
 
-        objectToSpawn.SetActive(true);
+        if (poolQueue.Count == 0)
+        {
+            Debug.LogWarning("Pool " + tag + " is empty!");
+            return null;
+        }
 
-        // Set parent FIRST (important)
-        objectToSpawn.transform.SetParent(parent, true);
+        GameObject objectToSpawn = poolQueue.Dequeue();
 
+        objectToSpawn.transform.SetParent(parent);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
 
-        poolDictionary[tag].Enqueue(objectToSpawn);
+        objectToSpawn.SetActive(true);
 
         return objectToSpawn;
+    }
+
+    // ✅ Return object to pool manually
+    public void ReturnToPool(string tag, GameObject obj)
+    {
+        obj.SetActive(false);
+        obj.transform.SetParent(transform);
+
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Destroy(obj);
+            return;
+        }
+
+        poolDictionary[tag].Enqueue(obj);
     }
 }
