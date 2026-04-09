@@ -8,8 +8,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float jumpf;
-
-public Rigidbody2D rb;
+    public ParticleSystem BloodFx;
+    
+    public Rigidbody2D rb;
     public bool isGrounded;
     private CapsuleCollider2D Box;
     public LayerMask ground;
