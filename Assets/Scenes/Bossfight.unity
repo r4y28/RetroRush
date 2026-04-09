@@ -771,7 +771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallscript: {fileID: 0}
-  Blood: {fileID: 7810294909828934012, guid: 185f0175107527a4d88c69add86cd73f, type: 3}
   bloodNeeded: 0
   maxBlood: 5
 --- !u!61 &569709369
@@ -1082,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 4249018898041882768, guid: 1318d02966e8dd04388492c8ccc29f63, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607536934606723250, guid: 1318d02966e8dd04388492c8ccc29f63, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4607536934606723250, guid: 1318d02966e8dd04388492c8ccc29f63, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
