@@ -4,13 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-<<<<<<< HEAD
   - player
   - Saw
-=======
-  - Saw
-  - player
->>>>>>> 84a7720c212c0e8c0dd8f009b3a3f3ebddd7fbfb
   layers:
   - Default
   - TransparentFX
