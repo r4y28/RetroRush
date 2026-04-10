@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class attack : MonoBehaviour
 {
@@ -6,8 +7,13 @@ public class attack : MonoBehaviour
     public float radius = 5;
     public Transform attackp;
 
+    public int damage = 1;
+
     private void OnDrawGizmosSelected()
     {
+        if (attackp == null) return;
+
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackp.position, radius);
     }
 
@@ -17,21 +23,47 @@ public class attack : MonoBehaviour
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackp.position, radius, mask);
 
-        //Debug.Log("Hit " + hits.Length + " objects!");
-
         foreach (Collider2D obj in hits)
         {
-            var sr = obj.GetComponent<SpriteRenderer>();
+            // ✅ NORMAL ENEMY
+            Health health = obj.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
+
+            // ✅ BOSS (works even if script is on parent)
+            BossScript boss = obj.GetComponentInParent<BossScript>();
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
+            }
+
+            // ✅ FLASH EFFECT
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
             if (sr != null)
-                sr.color = Color.red;
-            obj.gameObject.SetActive(false);
+            {
+                StartCoroutine(FlashRed(sr));
+            }
         }
     }
 
+    IEnumerator FlashRed(SpriteRenderer sr)
+    {
+        Color originalColor = sr.color;
+
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.15f);
+
+        if (sr != null)
+            sr.color = originalColor;
+    }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere (attackp.position, radius);
+        if (attackp == null) return;
+
         Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackp.position, radius);
     }
 }
