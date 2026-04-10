@@ -11,8 +11,8 @@ public class BOSS_SCEEN : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
-            
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
-}
+
