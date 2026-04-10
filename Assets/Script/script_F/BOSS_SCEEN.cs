@@ -1,0 +1,18 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class BOSS_SCEEN : MonoBehaviour
+{
+  
+
+    public string sceneToLoad; 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player")) 
+        {
+            SceneManager.GetActiveScene().buildIndex;
+        }
+    }
+}
+}
